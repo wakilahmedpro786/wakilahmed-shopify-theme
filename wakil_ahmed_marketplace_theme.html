@@ -1,0 +1,577 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0D2E6E;--navy2:#1a3a8f;--blue:#1E5FBE;--gold:#F5A623;--gold2:#e8940e;--white:#fff;--bg:#f4f6fb;--text:#1a1a2e;--muted:#6b7280;--green:#16a34a;--red:#dc2626;--border:#e2e8f0;
+}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5}
+a{text-decoration:none;color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* TOP BAR */
+.topbar{background:var(--navy);color:#fff;padding:6px 0;font-size:12px}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.topbar a{color:#cfe0ff}
+.topbar-links{display:flex;gap:16px}
+
+/* HEADER */
+.header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.header-inner{max-width:1280px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px}
+.logo-area{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.logo-icon{width:44px;height:44px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.logo-spark{position:absolute;top:4px;right:6px;font-size:18px}
+.logo-text{font-family:'Nunito',sans-serif;font-weight:900}
+.logo-text .w1{color:var(--navy);font-size:18px}
+.logo-text .w2{color:var(--gold);font-size:12px;letter-spacing:.5px;display:block;line-height:1}
+.search-wrap{flex:1;max-width:560px;display:flex;border:2px solid var(--navy);border-radius:8px;overflow:hidden}
+.search-wrap select{padding:8px 10px;background:var(--navy);color:#fff;border:none;font-size:13px;cursor:pointer}
+.search-wrap input{flex:1;padding:8px 12px;border:none;font-size:14px;outline:none}
+.search-btn{background:var(--gold);border:none;padding:8px 18px;cursor:pointer;font-size:18px;color:var(--navy);font-weight:700}
+.header-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.hbtn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 10px;border-radius:8px;cursor:pointer;background:none;border:none;font-family:inherit;color:var(--navy);transition:.2s}
+.hbtn:hover{background:var(--bg)}
+.hbtn .hi{font-size:22px}
+.hbtn .hl{font-size:11px;color:var(--muted)}
+.cart-btn{background:var(--gold);border-radius:8px;padding:8px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;border:none;font-family:inherit;color:var(--navy);font-weight:700;font-size:14px;transition:.2s}
+.cart-btn:hover{background:var(--gold2)}
+.cart-count{background:var(--navy);color:#fff;border-radius:50%;width:20px;height:20px;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+/* NAV */
+.mainnav{background:var(--navy)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:0;overflow-x:auto}
+.nav-item{padding:12px 16px;color:#e8f0ff;font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent;transition:.2s;display:flex;align-items:center;gap:4px}
+.nav-item:hover,.nav-item.active{color:#fff;border-bottom-color:var(--gold)}
+.nav-item .arr{font-size:10px;opacity:.6}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,#0a2255 100%);color:#fff;padding:48px 16px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;border-radius:50%;background:rgba(245,166,35,.08);pointer-events:none}
+.hero::after{content:'';position:absolute;left:40%;bottom:-60px;width:300px;height:300px;border-radius:50%;background:rgba(30,95,190,.15);pointer-events:none}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.3);border-radius:20px;padding:4px 14px;font-size:12px;color:var(--gold);margin-bottom:16px}
+.hero h1{font-family:'Nunito',sans-serif;font-size:42px;font-weight:900;line-height:1.1;margin-bottom:16px}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:16px;color:rgba(255,255,255,.8);margin-bottom:28px;max-width:460px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:12px 28px;border-radius:8px;font-weight:700;font-size:15px;border:none;cursor:pointer;font-family:inherit;transition:.2s}
+.btn-primary:hover{background:var(--gold2)}
+.btn-outline{background:transparent;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;font-size:15px;border:2px solid rgba(255,255,255,.4);cursor:pointer;font-family:inherit;transition:.2s}
+.btn-outline:hover{border-color:#fff}
+.hero-stats{display:flex;gap:24px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:'Nunito',sans-serif;font-size:24px;font-weight:900;color:var(--gold)}
+.hero-stat .lbl{font-size:12px;color:rgba(255,255,255,.6)}
+.hero-right{display:flex;flex-direction:column;gap:12px}
+.promo-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px;backdrop-filter:blur(4px)}
+.promo-card .icon{width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.promo-card .ic-green{background:rgba(22,163,74,.2)}
+.promo-card .ic-blue{background:rgba(30,95,190,.25)}
+.promo-card .ic-gold{background:rgba(245,166,35,.2)}
+.promo-card h3{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:#fff}
+.promo-card p{font-size:13px;color:rgba(255,255,255,.7)}
+.badge-sale{background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:8px}
+
+/* TRUST BAR */
+.trust-bar{background:#fff;border-bottom:1px solid var(--border);padding:14px 16px}
+.trust-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--navy)}
+.trust-item .ti{font-size:22px;color:var(--gold)}
+
+/* SECTION */
+.section{max-width:1280px;margin:0 auto;padding:40px 16px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.section-title{font-family:'Nunito',sans-serif;font-size:24px;font-weight:900;color:var(--navy)}
+.section-title span{color:var(--gold)}
+.see-all{color:var(--blue);font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:4px}
+.section-sub{font-size:14px;color:var(--muted);margin-top:4px}
+
+/* CATEGORY GRID */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
+.cat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 8px;text-align:center;cursor:pointer;transition:.2s}
+.cat-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 16px rgba(245,166,35,.15)}
+.cat-icon{font-size:32px;margin-bottom:8px}
+.cat-name{font-size:12px;font-weight:700;color:var(--navy)}
+.cat-count{font-size:11px;color:var(--muted)}
+
+/* PRODUCT GRID */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.prod-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:.2s;position:relative}
+.prod-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(30,95,190,.12);transform:translateY(-3px)}
+.prod-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:52px;background:#f8f9ff}
+.prod-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px}
+.prod-badge.new{background:var(--green)}
+.prod-body{padding:12px}
+.prod-brand{font-size:11px;color:var(--muted);margin-bottom:2px}
+.prod-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.prod-stars{color:var(--gold);font-size:13px;display:flex;align-items:center;gap:4px;margin-bottom:8px}
+.prod-stars span{color:var(--muted);font-size:12px}
+.prod-price{display:flex;align-items:baseline;gap:8px}
+.prod-price .price{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:var(--navy)}
+.prod-price .old{font-size:13px;color:var(--muted);text-decoration:line-through}
+.prod-price .save{font-size:11px;color:var(--green);font-weight:700}
+.prod-atc{width:100%;margin-top:10px;background:var(--navy);color:#fff;border:none;border-radius:8px;padding:9px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.prod-atc:hover{background:var(--blue)}
+.prod-wish{position:absolute;top:10px;right:10px;background:#fff;border:1px solid var(--border);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:.2s}
+.prod-wish:hover{border-color:var(--red);color:var(--red)}
+
+/* PROMO BANNERS */
+.banner-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.banner{border-radius:14px;padding:28px 32px;color:#fff;position:relative;overflow:hidden;min-height:160px;display:flex;flex-direction:column;justify-content:flex-end}
+.banner-big{background:linear-gradient(135deg,#0D2E6E,#1a5c8c)}
+.banner-sm1{background:linear-gradient(135deg,#b45309,#d97706)}
+.banner-sm2{background:linear-gradient(135deg,#166534,#16a34a)}
+.banner h3{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900}
+.banner p{font-size:13px;opacity:.85;margin:4px 0 12px}
+.banner-sm1 h3,.banner-sm2 h3{font-size:17px}
+.banner-badge2{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:3px 10px;font-size:12px;font-weight:700;display:inline-block;margin-bottom:8px}
+.banner-emoji{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:56px;opacity:.3}
+.sm-banners{display:flex;flex-direction:column;gap:16px}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.testi-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;position:relative}
+.testi-card::before{content:'\201C';font-size:48px;color:var(--gold);line-height:1;position:absolute;top:12px;left:18px;font-family:Georgia,serif;opacity:.5}
+.testi-text{font-size:14px;color:var(--text);line-height:1.6;padding-top:20px;margin-bottom:14px}
+.testi-author{display:flex;align-items:center;gap:10px;border-top:1px solid var(--border);padding-top:12px}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.testi-name{font-size:14px;font-weight:700;color:var(--navy)}
+.testi-loc{font-size:12px;color:var(--muted)}
+.stars5{color:var(--gold);font-size:13px;display:block;margin-bottom:8px}
+
+/* APP SECTION */
+.app-section{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:48px 16px;margin:0;color:#fff}
+.app-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.app-left h2{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;margin-bottom:12px}
+.app-left h2 span{color:var(--gold)}
+.app-left p{font-size:15px;opacity:.8;margin-bottom:24px;max-width:480px}
+.app-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.app-feat{display:flex;align-items:center;gap:8px;font-size:13px}
+.app-feat .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.qr-box{background:#fff;border-radius:16px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.qr-placeholder{width:150px;height:150px;background:var(--bg);border:2px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--muted);flex-direction:column;gap:4px}
+.qr-img{width:150px;height:150px;object-fit:cover;border-radius:8px}
+.qr-label{font-size:12px;color:var(--navy);font-weight:700}
+.gplay-btn{background:#000;color:#fff;border-radius:8px;padding:8px 18px;font-size:13px;display:flex;align-items:center;gap:8px}
+.gplay-icon{font-size:20px}
+
+/* NEWSLETTER */
+.newsletter{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 16px}
+.nl-inner{max-width:600px;margin:0 auto;text-align:center}
+.nl-inner h3{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;color:var(--navy);margin-bottom:8px}
+.nl-inner p{font-size:14px;color:var(--muted);margin-bottom:20px}
+.nl-form{display:flex;gap:8px;max-width:460px;margin:0 auto}
+.nl-form input{flex:1;padding:12px 16px;border:2px solid var(--border);border-radius:8px;font-size:14px;outline:none;font-family:inherit}
+.nl-form input:focus{border-color:var(--navy)}
+.nl-form button{background:var(--navy);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.8);padding:48px 16px 0}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-brand h3{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:#fff;margin-bottom:8px}
+.footer-brand p{font-size:13px;line-height:1.7;margin-bottom:16px}
+.social-links{display:flex;gap:8px}
+.soc{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:.2s;border:1px solid rgba(255,255,255,.1)}
+.soc:hover{background:var(--gold);color:var(--navy)}
+.footer-col h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:14px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:8px}
+.footer-col a{font-size:13px;opacity:.7;transition:.2s;cursor:pointer}
+.footer-col a:hover{opacity:1;color:var(--gold)}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-bottom .copy{font-size:12px;opacity:.6}
+.payment-icons{display:flex;gap:6px;flex-wrap:wrap}
+.pay-icon{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:5px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.7);font-weight:600}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:24px}
+.tab{padding:10px 20px;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:.2s}
+.tab.active{color:var(--navy);border-bottom-color:var(--gold)}
+.tab:hover:not(.active){color:var(--navy)}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+.hero-inner,.banner-grid,.app-inner,.footer-grid{grid-template-columns:1fr}
+.hero h1{font-size:28px}
+.logo-text .w1{font-size:14px}
+}
+</style>
+
+<h2 class="sr-only">Wakil Ahmed Marketplace — full ecommerce storefront preview with header, navigation, hero, product collections, app download section, and footer</h2>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>🎉 Free Shipping on Orders Over $49 | Use Code: <strong>SAVE10</strong> for 10% Off</span>
+    <div class="topbar-links">
+      <a href="#">Track Order</a>
+      <a href="#">Help</a>
+      <a href="#">USD ▾</a>
+      <a href="#">EN ▾</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <span style="font-size:22px">✦</span>
+      </div>
+      <div class="logo-text">
+        <span class="w1">Wakil Ahmed</span>
+        <span class="w2" style="color:var(--gold);font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:1.5px">MARKETPLACE</span>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <select><option>All</option><option>Grocery</option><option>Snacks</option><option>Health</option><option>Beauty</option><option>Electronics</option></select>
+      <input type="text" placeholder="Search millions of products..." />
+      <button class="search-btn">🔍</button>
+    </div>
+    <div class="header-actions">
+      <button class="hbtn"><span class="hi">♡</span><span class="hl">Wishlist</span></button>
+      <button class="hbtn"><span class="hi">👤</span><span class="hl">Account</span></button>
+      <button class="cart-btn"><span style="font-size:20px">🛒</span> Cart <span class="cart-count">3</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="mainnav">
+  <div class="nav-inner">
+    <div class="nav-item active">🏠 Home</div>
+    <div class="nav-item">🛒 Grocery <span class="arr">▾</span></div>
+    <div class="nav-item">🍭 Snacks <span class="arr">▾</span></div>
+    <div class="nav-item">💊 Health <span class="arr">▾</span></div>
+    <div class="nav-item">💄 Beauty <span class="arr">▾</span></div>
+    <div class="nav-item">🏠 Household <span class="arr">▾</span></div>
+    <div class="nav-item">👶 Baby Care</div>
+    <div class="nav-item">🐾 Pet Care</div>
+    <div class="nav-item">📱 Electronics</div>
+    <div class="nav-item" style="color:var(--gold);font-weight:800">🔥 Deals</div>
+    <div class="nav-item">🌍 International</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">⭐ Trusted by 50,000+ Customers</div>
+      <h1>Shop Smart.<br><span>Save More.</span><br>Live Better.</h1>
+      <p>Your one-stop marketplace for groceries, health essentials, beauty, household supplies, and more — delivered fast to your door.</p>
+      <div class="hero-btns">
+        <button class="btn-primary">Shop Now →</button>
+        <button class="btn-outline">View Deals</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">50K+</div><div class="lbl">Happy Customers</div></div>
+        <div class="hero-stat"><div class="num">10K+</div><div class="lbl">Products</div></div>
+        <div class="hero-stat"><div class="num">99%</div><div class="lbl">Satisfaction</div></div>
+        <div class="hero-stat"><div class="num">Fast</div><div class="lbl">2–5 Day Delivery</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="promo-card">
+        <div class="icon ic-gold">🛒</div>
+        <div>
+          <h3>New Arrivals This Week <span class="badge-sale">NEW</span></h3>
+          <p>Fresh groceries, vitamins & seasonal items just added</p>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="icon ic-green">💚</div>
+        <div>
+          <h3>Health & Wellness Essentials</h3>
+          <p>Vitamins, supplements & personal care — up to 30% off</p>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="icon ic-blue">📦</div>
+        <div>
+          <h3>Free Shipping Over $49</h3>
+          <p>US, Canada & international shipping available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="ti">🔒</span> SSL Secured Shopping</div>
+    <div class="trust-item"><span class="ti">🚚</span> Free Shipping $49+</div>
+    <div class="trust-item"><span class="ti">↩️</span> Easy 30-Day Returns</div>
+    <div class="trust-item"><span class="ti">💳</span> Secure Payments</div>
+    <div class="trust-item"><span class="ti">✅</span> 100% Authentic Products</div>
+    <div class="trust-item"><span class="ti">🌍</span> International Shipping</div>
+  </div>
+</div>
+
+<!-- SHOP BY CATEGORY -->
+<div class="section">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Shop by <span>Category</span></div>
+      <div class="section-sub">Explore our wide range of product categories</div>
+    </div>
+    <a class="see-all">View All →</a>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><div class="cat-icon">🌾</div><div class="cat-name">Grocery</div><div class="cat-count">240+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">🍭</div><div class="cat-name">Snacks</div><div class="cat-count">180+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">💊</div><div class="cat-name">Health</div><div class="cat-count">320+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">💄</div><div class="cat-name">Beauty</div><div class="cat-count">210+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">🏡</div><div class="cat-name">Household</div><div class="cat-count">150+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">👶</div><div class="cat-name">Baby Care</div><div class="cat-count">120+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">🐾</div><div class="cat-name">Pet Supplies</div><div class="cat-count">90+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">📱</div><div class="cat-name">Electronics</div><div class="cat-count">200+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">🧴</div><div class="cat-name">Personal Care</div><div class="cat-count">175+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">🍚</div><div class="cat-name">Rice & Flour</div><div class="cat-count">60+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">🧺</div><div class="cat-name">Laundry</div><div class="cat-count">80+ items</div></div>
+    <div class="cat-card"><div class="cat-icon">🎁</div><div class="cat-name">Seasonal</div><div class="cat-count">110+ items</div></div>
+  </div>
+</div>
+
+<!-- PROMOTIONAL BANNERS -->
+<div class="section" style="padding-top:0">
+  <div class="banner-grid">
+    <div class="banner banner-big">
+      <span class="banner-emoji">🛒</span>
+      <div class="banner-badge2">MEGA SALE</div>
+      <h3>Up to 40% Off<br>Grocery Essentials</h3>
+      <p>Stock up on rice, flour, cooking oils, dry foods & more</p>
+      <button class="btn-primary" style="font-size:13px;padding:9px 20px;width:fit-content">Shop Grocery →</button>
+    </div>
+    <div class="sm-banners">
+      <div class="banner banner-sm1">
+        <span class="banner-emoji">💊</span>
+        <div class="banner-badge2">30% OFF</div>
+        <h3>Vitamins & Supplements</h3>
+        <p>Immune support, digestive health & more</p>
+      </div>
+      <div class="banner banner-sm2">
+        <span class="banner-emoji">🧴</span>
+        <div class="banner-badge2">NEW IN</div>
+        <h3>Beauty & Personal Care</h3>
+        <p>Skin care, shampoo & cosmetics</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED PRODUCTS -->
+<div class="section" style="padding-top:0">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Featured <span>Products</span></div>
+    </div>
+    <a class="see-all">See All →</a>
+  </div>
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab(this,'bestsellers')">Best Sellers</div>
+    <div class="tab" onclick="switchTab(this,'new')">New Arrivals</div>
+    <div class="tab" onclick="switchTab(this,'deals')">Top Deals</div>
+    <div class="tab" onclick="switchTab(this,'trending')">Trending</div>
+  </div>
+  <div class="prod-grid" id="product-area"></div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div style="background:var(--bg);padding:40px 0;border-top:1px solid var(--border)">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-head">
+      <div>
+        <div class="section-title">What Our <span>Customers Say</span></div>
+        <div class="section-sub">Verified reviews from real shoppers</div>
+      </div>
+      <div style="font-size:13px;color:var(--navy);font-weight:700">⭐ 4.8/5 from 12,000+ reviews</div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <span class="stars5">★★★★★</span>
+        <div class="testi-text">The grocery selection is amazing — I found everything I needed including specialty items. Fast shipping and great prices. Will definitely order again!</div>
+        <div class="testi-author"><div class="testi-avatar" style="background:#1a3a8f">SK</div><div><div class="testi-name">Sarah K.</div><div class="testi-loc">New York, USA</div></div></div>
+      </div>
+      <div class="testi-card">
+        <span class="stars5">★★★★★</span>
+        <div class="testi-text">Best marketplace for health & wellness products. The vitamins are authentic, prices are unbeatable, and customer service is top-notch. Highly recommended!</div>
+        <div class="testi-author"><div class="testi-avatar" style="background:#166534">MR</div><div><div class="testi-name">Mohammed R.</div><div class="testi-loc">Toronto, Canada</div></div></div>
+      </div>
+      <div class="testi-card">
+        <span class="stars5">★★★★★</span>
+        <div class="testi-text">I love the variety here — from baby products to pet supplies to cleaning supplies. Super convenient and always arrive well-packaged. My go-to store!</div>
+        <div class="testi-author"><div class="testi-avatar" style="background:#92400e">JL</div><div><div class="testi-name">Jennifer L.</div><div class="testi-loc">Los Angeles, USA</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APP DOWNLOAD SECTION -->
+<div class="app-section">
+  <div class="app-inner">
+    <div class="app-left">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.3);border-radius:20px;padding:4px 14px;font-size:12px;color:var(--gold);margin-bottom:16px">📱 Available on Google Play</div>
+      <h2>Download the <span>Wakil Ahmed Marketplace</span> Mobile App</h2>
+      <p>Shop smarter, save more — get exclusive app-only deals, faster checkout, order tracking, and personalized recommendations right in your pocket.</p>
+      <div class="app-features">
+        <div class="app-feat"><span class="dot"></span> Exclusive app deals & coupons</div>
+        <div class="app-feat"><span class="dot"></span> Real-time order tracking</div>
+        <div class="app-feat"><span class="dot"></span> Faster, easier checkout</div>
+        <div class="app-feat"><span class="dot"></span> Personalized recommendations</div>
+        <div class="app-feat"><span class="dot"></span> Push notifications for deals</div>
+        <div class="app-feat"><span class="dot"></span> Manage wishlist & account</div>
+      </div>
+      <div class="gplay-btn" style="display:inline-flex;cursor:pointer"><span class="gplay-icon">▶</span><div><div style="font-size:10px;opacity:.7">GET IT ON</div><div style="font-size:16px;font-weight:700">Google Play</div></div></div>
+    </div>
+    <div class="qr-box">
+      <div style="font-size:12px;color:var(--muted);font-weight:600;margin-bottom:4px">Scan to Download</div>
+      <div style="width:150px;height:150px;background:#f0f0f0;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+        <img src="/mnt/user-data/uploads/b48ee335-eb75-4796-b4f0-21e71ffafdd1.jpeg" alt="Google Play QR Code for Wakil Ahmed Marketplace" style="width:120px;height:120px;object-fit:contain" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
+        <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:4px;font-size:11px;color:#888">📱<br>QR Code</div>
+      </div>
+      <div class="qr-label">wakilahmed.com</div>
+      <div style="font-size:11px;color:#888">Shop Smart. Save More.</div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="nl-inner">
+    <h3>📬 Get Deals in Your Inbox</h3>
+    <p>Subscribe to our newsletter and be the first to know about exclusive sales, new arrivals, and special offers.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="Enter your email address" />
+      <button>Subscribe</button>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-top:10px">No spam. Unsubscribe anytime. 🔒 We respect your privacy.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>✦ Wakil Ahmed Marketplace</h3>
+      <p>Your trusted online marketplace for groceries, health & wellness, beauty, household essentials, baby products, pet supplies and more. Serving customers across the US, Canada, and internationally.</p>
+      <div style="font-size:13px;opacity:.7;margin-bottom:12px">📍 wakilahmed.com | ✉️ support@wakilahmed.com</div>
+      <div class="social-links">
+        <div class="soc">f</div>
+        <div class="soc">in</div>
+        <div class="soc">🐦</div>
+        <div class="soc">📸</div>
+        <div class="soc">▶</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Customer Service</h4>
+      <ul>
+        <li><a>Contact Us</a></li>
+        <li><a>Track My Order</a></li>
+        <li><a>Returns & Refunds</a></li>
+        <li><a>Shipping Policy</a></li>
+        <li><a>FAQ</a></li>
+        <li><a>Size Guides</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a>Best Sellers</a></li>
+        <li><a>New Arrivals</a></li>
+        <li><a>Deals & Offers</a></li>
+        <li><a>Clearance</a></li>
+        <li><a>Gift Cards</a></li>
+        <li><a>International</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a>About Us</a></li>
+        <li><a>Privacy Policy</a></li>
+        <li><a>Terms & Conditions</a></li>
+        <li><a>DMCA Policy</a></li>
+        <li><a>Accessibility</a></li>
+        <li><a>Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="copy">© 2025 Wakil Ahmed Marketplace. All rights reserved. | wakilahmed.com</div>
+    <div class="payment-icons">
+      <span class="pay-icon">VISA</span>
+      <span class="pay-icon">MC</span>
+      <span class="pay-icon">AMEX</span>
+      <span class="pay-icon">PayPal</span>
+      <span class="pay-icon">Shop Pay</span>
+      <span class="pay-icon">Apple Pay</span>
+      <span class="pay-icon">Google Pay</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const products = {
+  bestsellers:[
+    {emoji:'🌾',brand:'Premium Select',name:'Basmati Rice 10lb Bag',price:18.99,old:24.99,save:'24% OFF',stars:5,reviews:342,badge:'SALE'},
+    {emoji:'💊',brand:'Nature\'s Best',name:'Vitamin C 1000mg — 120 Tablets',price:12.49,old:19.99,save:'38% OFF',stars:5,reviews:891,badge:'SALE'},
+    {emoji:'🧴',brand:'Dove',name:'Body Wash Sensitive Skin 22oz',price:7.99,old:10.99,save:'27% OFF',stars:4,reviews:215,badge:'SALE'},
+    {emoji:'🧹',brand:'Tide',name:'Laundry Detergent Original 92oz',price:16.99,old:22.99,save:'26% OFF',stars:5,reviews:567,badge:'SALE'},
+    {emoji:'🍫',brand:'Hershey\'s',name:'Milk Chocolate Bars Variety 36ct',price:22.49,old:28.99,save:'22% OFF',stars:5,reviews:438,badge:'SALE'},
+  ],
+  new:[
+    {emoji:'🥤',brand:'Celsius',name:'Energy Drink Variety Pack 24ct',price:34.99,old:null,save:null,stars:5,reviews:48,badge:'NEW'},
+    {emoji:'🐕',brand:'Purina',name:'Dog Treats Beggin\' Strips 25oz',price:9.99,old:null,save:null,stars:4,reviews:127,badge:'NEW'},
+    {emoji:'📱',brand:'Anker',name:'USB-C Fast Charger 65W',price:29.99,old:null,save:null,stars:5,reviews:63,badge:'NEW'},
+    {emoji:'🧼',brand:'Method',name:'All-Purpose Cleaner Spray 3-Pack',price:14.99,old:null,save:null,stars:5,reviews:35,badge:'NEW'},
+    {emoji:'👶',brand:'Pampers',name:'Baby Wipes Sensitive 704ct',price:21.99,old:null,save:null,stars:5,reviews:92,badge:'NEW'},
+  ],
+  deals:[
+    {emoji:'🍚',brand:'Mahatma',name:'Long Grain White Rice 20lb',price:16.99,old:26.99,save:'37% OFF',stars:4,reviews:198,badge:'DEAL'},
+    {emoji:'💆',brand:'Head & Shoulders',name:'Shampoo Anti-Dandruff 32.1oz',price:8.49,old:13.99,save:'39% OFF',stars:5,reviews:432,badge:'DEAL'},
+    {emoji:'🌿',brand:'Garden of Life',name:'Probiotic Capsules 30ct',price:24.99,old:39.99,save:'38% OFF',stars:5,reviews:311,badge:'DEAL'},
+    {emoji:'🧻',brand:'Bounty',name:'Paper Towels Select-a-Size 12 Rolls',price:19.99,old:28.99,save:'31% OFF',stars:4,reviews:576,badge:'DEAL'},
+    {emoji:'🫧',brand:'Dawn',name:'Dish Soap Original Scent 56oz',price:6.99,old:10.49,save:'33% OFF',stars:5,reviews:889,badge:'DEAL'},
+  ],
+  trending:[
+    {emoji:'🍬',brand:'Haribo',name:'Goldbears Gummy Candy 5lb Bulk',price:17.99,old:22.99,save:'22% OFF',stars:5,reviews:762,badge:'HOT'},
+    {emoji:'💉',brand:'Ensure',name:'Complete Nutrition Shake 24pk',price:44.99,old:55.99,save:'20% OFF',stars:5,reviews:504,badge:'HOT'},
+    {emoji:'🌻',brand:'Crisco',name:'Vegetable Oil 128oz',price:11.99,old:14.99,save:'20% OFF',stars:4,reviews:287,badge:'HOT'},
+    {emoji:'🪥',brand:'Crest',name:'3D Whitestrips Professional 44ct',price:37.99,old:49.99,save:'24% OFF',stars:4,reviews:623,badge:'HOT'},
+    {emoji:'🧺',brand:'Arm & Hammer',name:'Laundry Detergent 210 Loads',price:28.99,old:36.99,save:'22% OFF',stars:5,reviews:1104,badge:'HOT'},
+  ]
+};
+
+function renderProducts(key){
+  const area=document.getElementById('product-area');
+  area.innerHTML=products[key].map(p=>`
+    <div class="prod-card">
+      <div class="prod-img">${p.emoji}</div>
+      ${p.badge?`<div class="prod-badge ${p.badge==='NEW'?'new':''}">${p.badge}</div>`:''}
+      <div class="prod-wish">♡</div>
+      <div class="prod-body">
+        <div class="prod-brand">${p.brand}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-stars">${'★'.repeat(p.stars)}${'☆'.repeat(5-p.stars)} <span>(${p.reviews})</span></div>
+        <div class="prod-price">
+          <span class="price">$${p.price}</span>
+          ${p.old?`<span class="old">$${p.old}</span><span class="save">${p.save}</span>`:''}
+        </div>
+        <button class="prod-atc">🛒 Add to Cart</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function switchTab(el, key){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderProducts(key);
+}
+
+renderProducts('bestsellers');
+</script>
